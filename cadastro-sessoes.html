@@ -104,6 +104,39 @@
   </div>
 </div>
 
+<script>
+  // Funções para carregar filmes e salas do localStorage
+  function carregarFilmes() {
+    const filmes = JSON.parse(localStorage.getItem('filmes') || '[]');
+    const selectFilme = document.getElementById('filme');
+    selectFilme.innerHTML = '<option value="">Selecione um filme</option>';
+    filmes.forEach(f => {
+      const opt = document.createElement('option');
+      opt.value = f.id;
+      opt.textContent = f.titulo || f.nome;
+      selectFilme.appendChild(opt);
+    });
+  }
+
+  function carregarSalas() {
+    const salas = JSON.parse(localStorage.getItem('salas') || '[]');
+    const selectSala = document.getElementById('sala');
+    selectSala.innerHTML = '<option value="">Selecione uma sala</option>';
+    salas.forEach(s => {
+      const opt = document.createElement('option');
+      opt.value = s.id;
+      opt.textContent = s.nome;
+      selectSala.appendChild(opt);
+    });
+  }
+
+  // Chamar ao carregar a página
+  window.addEventListener('DOMContentLoaded', () => {
+    carregarFilmes();
+    carregarSalas();
+  });
+</script>
+
 <script src="../js/sessoes.js"></script>
 </body>
 </html>
