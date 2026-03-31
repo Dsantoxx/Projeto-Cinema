@@ -1,0 +1,561 @@
+/* =====================================================
+   IMPORTAÇÃO DE FONTES
+   Bebas Neue = títulos
+   Outfit = textos gerais
+===================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+
+/* =====================================================
+   VARIÁVEIS GLOBAIS (CORES E PADRÕES)
+===================================================== */
+:root {
+  --bg: #0a0a0f;
+  --surface: #13131a;
+  --card: #1a1a24;
+  --border: #2a2a3a;
+  --accent: #0000ff;
+  --accent2: #ffde21;
+  --text: #f0f0f5;
+  --muted: #7a7a9a;
+  --success: #00d68f;
+  --radius: 12px;
+}
+
+
+/* =====================================================
+   RESET GLOBAL
+===================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+
+/* =====================================================
+   NAVBAR (TOPO FIXO)
+===================================================== */
+nav {
+  background: var(--surface);
+  border-bottom: 4px solid var(--border);
+  padding: 0 2rem;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  gap: 7.8rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.0rem;
+  color: var(--accent);
+  letter-spacing: 2px;
+  text-decoration: none;
+}
+
+.nav-logo span {
+  color: var(--accent2);
+}
+
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 1.0rem;
+  border-bottom: 2px solid transparent;
+}
+
+nav a:hover,
+nav a.active {
+  color: var(--text);
+  border-bottom-color: var(--accent);
+}
+
+
+/* =====================================================
+   HERO (TOPO DA HOME)
+===================================================== */
+.hero {
+  width: 100%;
+  padding: 3rem 4vw 2rem;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  min-height: auto;
+  padding-bottom: 2rem;
+}
+
+.hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 8vw, 5rem);
+  letter-spacing: 4px;
+  line-height: 1;
+}
+
+.hero h1 .yellow {
+  color: var(--accent);
+}
+
+.hero h1 .red {
+  color: var(--accent2);
+}
+
+.hero p {
+  color: var(--muted);
+  max-width: 600px;
+  margin-top: 0.5rem;
+}
+
+
+/* =====================================================
+   GRID DA HOME
+===================================================== */
+.home-grid {
+  width: 70%;
+  padding: 1rem 4vw 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1.0rem;
+  margin: 0 auto;
+}
+
+
+/* =====================================================
+   CARDS DA HOME
+===================================================== */
+.home-card {
+  background: var(--card);
+  border: 5px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 4.0rem;
+  text-decoration: none;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  gap: 1.0rem;
+  transition: 0.2s;
+}
+
+.home-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 8px 25px rgba(0,0,255,0.2);
+}
+
+.hc-icon {
+  font-size: 2.5rem;
+}
+
+.hc-title {
+  font-family: 'Bebas Neue', sans-serif;
+  color: var(--accent);
+  font-size: 1.2rem;
+}
+
+.hc-desc {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+
+/* =====================================================
+   CONTAINER (FULL WIDTH)
+===================================================== */
+.container {
+  width: 100%;
+  padding: 0 4vw 3rem;
+}
+
+
+/* =====================================================
+   PAGE HEADER
+===================================================== */
+.page-header {
+  padding: 2rem 4vw 1rem;
+}
+
+.page-header h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  letter-spacing: 3px;
+}
+
+.page-header h1 span {
+  color: var(--accent2);
+}
+
+.page-header p {
+  color: var(--muted);
+  margin-top: 0.3rem;
+}
+
+
+/* =====================================================
+   CARDS GERAIS
+===================================================== */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+
+/* =====================================================
+   FORMULÁRIO
+===================================================== */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-grid .full {
+  grid-column: 1 / -1;
+}
+
+label {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 8px;
+  background: var(--surface);
+  border: 3px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-family: 'Outfit', sans-serif;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+
+/* =====================================================
+   BOTÕES
+===================================================== */
+.btn {
+  padding: 0.9rem 2.4rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+
+.btn:hover {
+  opacity: 0.85;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: white;
+}
+
+.btn-danger {
+  border: 1px solid var(--accent2);
+  color: var(--accent2);
+  background: transparent;
+  padding: 0.5rem 1rem;
+}
+
+.btn-success {
+  background: var(--success);
+  color: #000;
+  text-decoration: none;
+  display: inline-block;
+}
+
+
+/* =====================================================
+   BADGES
+===================================================== */
+.badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge-yellow {
+  background: rgba(255, 222, 33, 0.15);
+  color: var(--accent2);
+  border: 1px solid var(--accent2);
+}
+
+.badge-blue {
+  background: rgba(0, 0, 255, 0.15);
+  color: #6699ff;
+  border: 1px solid #6699ff;
+}
+
+.badge-green {
+  background: rgba(0, 214, 143, 0.15);
+  color: var(--success);
+  border: 1px solid var(--success);
+}
+
+.badge-red {
+  background: rgba(255, 80, 80, 0.15);
+  color: #ff6b6b;
+  border: 1px solid #ff6b6b;
+}
+
+
+/* =====================================================
+   TABELA
+===================================================== */
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  color: var(--muted);
+  text-align: left;
+  padding: 15px;
+  border-bottom: 3px solid var(--border);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+td {
+  padding: 10px 15px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+tr:hover {
+  background: rgba(255,255,255,0.03);
+}
+
+
+/* =====================================================
+   ALERTAS
+===================================================== */
+.alert {
+  display: none;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.alert.show {
+  display: block;
+}
+
+.alert-success {
+  background: rgba(0, 214, 143, 0.15);
+  border: 1px solid var(--success);
+  color: var(--success);
+}
+
+.alert-error {
+  background: rgba(255, 222, 33, 0.1);
+  border: 1px solid var(--accent2);
+  color: var(--accent2);
+}
+
+
+/* =====================================================
+   ESTADO VAZIO
+===================================================== */
+.empty {
+  text-align: center;
+  padding: 3rem;
+  color: var(--muted);
+}
+
+.empty .icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+
+/* =====================================================
+   CARD DE SESSÃO
+===================================================== */
+.session-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 0.8rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.session-info .titulo {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.session-info .meta {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  font-size: 0.82rem;
+  color: var(--muted);
+  align-items: center;
+}
+
+.session-price {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  color: var(--accent2);
+  letter-spacing: 1px;
+}
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(3px);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.modal-overlay.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  width: 100%;
+  max-width: 380px;
+  transform: translateY(12px);
+  transition: transform 0.2s;
+}
+
+.modal-overlay.show .modal {
+  transform: translateY(0);
+}
+
+.modal-icon {
+  font-size: 2rem;
+  margin-bottom: 0.8rem;
+}
+
+.modal h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: var(--text);
+}
+
+.modal p {
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: flex-end;
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-ghost:hover {
+  border-color: var(--text);
+  color: var(--text);
+}
+
+
+/* =====================================================
+   RESPONSIVO
+===================================================== */
+@media (max-width: 900px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid .full {
+    grid-column: 1;
+  }
+
+  nav {
+    gap: 1.5rem;
+    overflow-x: auto;
+  }
+
+  .home-grid {
+    width: 95%;
+  }
+
+  .session-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

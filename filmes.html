@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Filmes – CineVB</title>
+  <link rel="stylesheet" href="./css/estilo.css" />
+</head>
+<body>
+
+<nav>
+  <a href="cinema.html" class="nav-logo">CINE<span>VB</span></a>
+  &nbsp;&nbsp;
+  <a href="filmes.html" class="active">Filmes</a>
+  &nbsp;&nbsp;
+  <a href="salas.html">Salas</a>
+  &nbsp;&nbsp;
+  <a href="sessoes.html">Sessões</a>
+  &nbsp;&nbsp;
+  <a href="ingressos.html">Ingressos</a>
+</nav>
+
+<div class="page-header">
+  <h1>Cadastro de <span>Filmes</span></h1>
+  <p>Adicione novos filmes ao catálogo do cinema.</p>
+</div>
+
+<div class="container">
+
+  <!-- FORMULÁRIO -->
+  <div class="card">
+    <div id="alert" class="alert"></div>
+
+    <div class="form-grid">
+      <div class="full">
+        <label for="titulo">Título do Filme</label>
+        <input type="text" id="titulo" placeholder="Ex: Oppenheimer" />
+      </div>
+
+      <div>
+        <label for="genero">Gênero</label>
+        <input type="text" id="genero" placeholder="Ex: Drama, Ação" />
+      </div>
+
+      <div>
+        <label for="classificacao">Classificação Indicativa</label>
+        <select id="classificacao">
+          <option value="">Selecione</option>
+          <option value="Livre">Livre</option>
+          <option value="10">10 anos</option>
+          <option value="12">12 anos</option>
+          <option value="14">14 anos</option>
+          <option value="16">16 anos</option>
+          <option value="18">18 anos</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="duracao">Duração (minutos)</label>
+        <input type="number" id="duracao" placeholder="Ex: 120" min="1" />
+      </div>
+
+      <div>
+        <label for="estreia">Data de Estreia</label>
+        <input type="date" id="estreia" />
+      </div>
+
+      <div class="full">
+        <label for="descricao">Descrição / Sinopse</label>
+        <textarea id="descricao" placeholder="Breve descrição do filme..."></textarea>
+      </div>
+    </div>
+
+    <br />
+    <button class="btn btn-primary" onclick="salvarFilme()">🎬 Salvar Filme</button>
+  </div>
+
+  <!-- LISTA -->
+  <div class="card">
+    <h3 style="margin-bottom:1.2rem;font-size:0.85rem;text-transform:uppercase;letter-spacing:1px;color:var(--muted)">Filmes Cadastrados</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Título</th>
+            <th>Gênero</th>
+            <th>Classificação</th>
+            <th>Duração</th>
+            <th>Estreia</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="tabela-filmes"></tbody>
+      </table>
+      <div id="empty-filmes" class="empty" style="display:none">
+        <div class="icon">🎥</div>
+        <p>Nenhum filme cadastrado ainda.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="../js/filmes.js"></script>
+</body>
+</html>

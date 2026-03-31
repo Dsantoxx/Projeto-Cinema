@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ingressos – CineVB</title>
+  <link rel="stylesheet" href="./css/estilo.css" />
+</head>
+<body>
+
+<nav>
+  <a href="cinema.html" class="nav-logo">CINE<span>VB</span></a>
+  &nbsp;&nbsp;
+  <a href="filmes.html">Filmes</a>
+  &nbsp;&nbsp;
+  <a href="salas.html">Salas</a>
+  &nbsp;&nbsp;
+  <a href="sessoes.html">Sessões</a>
+  &nbsp;&nbsp;
+  <a href="ingressos.html" class="active">Ingressos</a>
+</nav>
+
+<div class="page-header">
+  <h1>Venda de <span>Ingressos</span></h1>
+  <p>Registre a venda de ingressos para as sessões disponíveis.</p>
+</div>
+
+<div class="container">
+
+  <!-- FORMULÁRIO -->
+  <div class="card">
+    <div id="alert" class="alert"></div>
+
+    <div class="form-grid">
+      <div class="full">
+        <label for="sessao">Sessão</label>
+        <select id="sessao" onchange="atualizarPreco()">
+          <option value="">Selecione uma sessão</option>
+        </select>
+      </div>
+
+      <div id="info-sessao" style="display:none" class="full">
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;font-size:0.88rem;color:var(--muted);line-height:1.8;">
+          <span id="info-texto"></span>
+        </div>
+      </div>
+
+      <div>
+        <label for="cliente">Nome do Cliente</label>
+        <input type="text" id="cliente" placeholder="Nome completo" />
+      </div>
+
+      <div>
+        <label for="cpf">CPF</label>
+        <input type="text" id="cpf" placeholder="000.000.000-00" maxlength="14" />
+      </div>
+
+      <div>
+        <label for="assento">Assento</label>
+        <input type="text" id="assento" placeholder="Ex: A10" maxlength="5" />
+      </div>
+
+      <div>
+        <label for="pagamento">Tipo de Pagamento</label>
+        <select id="pagamento">
+          <option value="">Selecione</option>
+          <option value="Cartão">Cartão</option>
+          <option value="Pix">Pix</option>
+          <option value="Dinheiro">Dinheiro</option>
+        </select>
+      </div>
+    </div>
+
+    <br />
+    <button class="btn btn-primary" onclick="confirmarVenda()">🎟️ Confirmar Venda</button>
+  </div>
+
+  <!-- LISTA DE INGRESSOS VENDIDOS -->
+  <div class="card">
+    <h3 style="margin-bottom:1.2rem;font-size:0.85rem;text-transform:uppercase;letter-spacing:1px;color:var(--muted)">Ingressos Vendidos</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Sessão</th>
+            <th>Cliente</th>
+            <th>CPF</th>
+            <th>Assento</th>
+            <th>Pagamento</th>
+            <th>Valor</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="tabela-ingressos"></tbody>
+      </table>
+      <div id="empty-ingressos" class="empty" style="display:none">
+        <div class="icon">🎟️</div>
+        <p>Nenhum ingresso vendido ainda.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- MODAL DE CONFIRMAÇÃO -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal">
+    <div class="modal-icon">🎟️</div>
+    <h3>Cancelar ingresso</h3>
+    <p>Tem certeza que deseja cancelar este ingresso? Esta ação não pode ser desfeita.</p>
+    <div class="modal-actions">
+      <button class="btn-ghost" onclick="fecharModal()">Voltar</button>
+      <button class="btn btn-danger" id="modal-confirmar">Cancelar ingresso</button>
+    </div>
+  </div>
+</div>
+
+<script src="../js/ingressos.js"></script>
+</body>
+</html>

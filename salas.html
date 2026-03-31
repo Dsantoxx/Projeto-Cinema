@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Salas – CineVB</title>
+  <link rel="stylesheet" href="./css/estilo.css" />
+</head>
+<body>
+
+<nav>
+  <a href="cinema.html" class="nav-logo">CINE<span>VB</span></a>
+  &nbsp;&nbsp;
+  <a href="filmes.html">Filmes</a>
+  &nbsp;&nbsp;
+  <a href="salas.html" class="active">Salas</a>
+  &nbsp;&nbsp;
+  <a href="sessoes.html">Sessões</a>
+  &nbsp;&nbsp;
+  <a href="ingressos.html">Ingressos</a>
+</nav>
+
+<div class="page-header">
+  <h1>Cadastro de <span>Salas</span></h1>
+  <p>Registre as salas disponíveis no cinema.</p>
+</div>
+
+<div class="container">
+
+  <div class="card">
+    <div id="alert" class="alert"></div>
+
+    <div class="form-grid">
+      <div>
+        <label for="nome">Nome da Sala</label>
+        <input type="text" id="nome" placeholder="Ex: Sala 1" />
+      </div>
+
+      <div>
+        <label for="capacidade">Capacidade</label>
+        <input type="number" id="capacidade" placeholder="Ex: 150" min="1" />
+      </div>
+
+      <div>
+        <label for="tipo">Tipo de Sala</label>
+        <select id="tipo">
+          <option value="">Selecione</option>
+          <option value="2D">2D</option>
+          <option value="3D">3D</option>
+          <option value="IMAX">IMAX</option>
+        </select>
+      </div>
+    </div>
+
+    <br />
+    <button class="btn btn-primary" onclick="salvarSala()">🏛️ Salvar Sala</button>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-bottom:1.2rem;font-size:0.85rem;text-transform:uppercase;letter-spacing:1px;color:var(--muted)">Salas Cadastradas</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Capacidade</th>
+            <th>Tipo</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="tabela-salas"></tbody>
+      </table>
+      <div id="empty-salas" class="empty" style="display:none">
+        <div class="icon">🏛️</div>
+        <p>Nenhuma sala cadastrada ainda.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- MODAL DE CONFIRMAÇÃO -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal">
+    <div class="modal-icon">🗑️</div>
+    <h3>Excluir sala</h3>
+    <p>Tem certeza que deseja excluir esta sala? Esta ação não pode ser desfeita.</p>
+    <div class="modal-actions">
+      <button class="btn-ghost" onclick="fecharModal()">Cancelar</button>
+      <button class="btn btn-danger" id="modal-confirmar">Excluir</button>
+    </div>
+  </div>
+</div>
+
+<script src="../js/salas.js"></script>
+</body>
+</html>

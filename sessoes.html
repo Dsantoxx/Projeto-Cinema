@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sessões – CineVB</title>
+  <link rel="stylesheet" href="./css/estilo.css" />
+</head>
+<body>
+
+<nav>
+  <a href="cinema.html" class="nav-logo">CINE<span>VB</span></a>
+  &nbsp;&nbsp;
+  <a href="filmes.html">Filmes</a>
+  &nbsp;&nbsp;
+  <a href="salas.html">Salas</a>
+  &nbsp;&nbsp;
+  <a href="sessoes.html" class="active">Sessões</a>
+  &nbsp;&nbsp;
+  <a href="ingressos.html">Ingressos</a>
+</nav>
+
+<div class="page-header">
+  <h1>Cadastro de <span>Sessões</span></h1>
+  <p>Crie sessões combinando filme, sala, data e horário.</p>
+</div>
+
+<div class="container">
+
+  <!-- FORMULÁRIO -->
+  <div class="card">
+    <div id="alert" class="alert"></div>
+
+    <div class="form-grid">
+      <div>
+        <label for="filme">Filme</label>
+        <select id="filme">
+          <option value="">Selecione um filme</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="sala">Sala</label>
+        <select id="sala">
+          <option value="">Selecione uma sala</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="dataHora">Data e Hora</label>
+        <input type="datetime-local" id="dataHora" />
+      </div>
+
+      <div>
+        <label for="preco">Preço (R$)</label>
+        <input type="number" id="preco" placeholder="Ex: 35.00" min="0" step="0.01" />
+      </div>
+
+      <div>
+        <label for="idioma">Idioma</label>
+        <select id="idioma">
+          <option value="">Selecione</option>
+          <option value="Dublado">Dublado</option>
+          <option value="Legendado">Legendado</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="formato">Formato</label>
+        <select id="formato">
+          <option value="">Selecione</option>
+          <option value="2D">2D</option>
+          <option value="3D">3D</option>
+        </select>
+      </div>
+    </div>
+
+    <br />
+    <button class="btn btn-primary" onclick="salvarSessao()">🕐 Salvar Sessão</button>
+  </div>
+
+  <!-- LISTAGEM -->
+  <div class="card">
+    <h3 style="margin-bottom:1.2rem;font-size:0.85rem;text-transform:uppercase;letter-spacing:1px;color:var(--muted)">Sessões Disponíveis</h3>
+    <div id="lista-sessoes"></div>
+    <div id="empty-sessoes" class="empty" style="display:none">
+      <div class="icon">🕐</div>
+      <p>Nenhuma sessão cadastrada ainda.</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- MODAL DE CONFIRMAÇÃO -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal">
+    <div class="modal-icon">🗑️</div>
+    <h3>Excluir sessão</h3>
+    <p>Tem certeza que deseja excluir esta sessão? Esta ação não pode ser desfeita.</p>
+    <div class="modal-actions">
+      <button class="btn-ghost" onclick="fecharModal()">Cancelar</button>
+      <button class="btn btn-danger" id="modal-confirmar">Excluir</button>
+    </div>
+  </div>
+</div>
+
+<script src="../js/sessoes.js"></script>
+</body>
+</html>
